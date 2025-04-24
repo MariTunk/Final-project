@@ -1,9 +1,9 @@
 $(document).ready(function () {
-    // Handle form submission for creating a booking
+    //  form submission for creating a booking
     $('#bookingForm').on('submit', function (e) {
-        e.preventDefault(); // Prevent the default form submission
+        e.preventDefault(); 
 
-        // Gather booking data from the form
+    
         const bookingData = {
             booking_date: $('#booking_date').val(),
             service_name: $('#service_name').val(),
@@ -11,9 +11,9 @@ $(document).ready(function () {
             notes: $('#notes').val(),
         };
 
-        // AJAX request to create a new booking
+        //  create a new booking
         $.ajax({
-            url: '/bookings', // Ensure this matches your route for creating bookings
+            url: '/bookings', 
             type: 'POST',
             data: bookingData,
             dataType: 'json',
