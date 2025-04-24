@@ -4,7 +4,7 @@ namespace app\models;
 
 abstract class Model {
 
-    // Define the table name property that will be used by child classes
+ 
     protected $table;
 
     // Query to fetch all records from a table
