@@ -4,7 +4,7 @@ namespace app\controllers;
 
 class Controller {
 
-    // JSON response helper
+    // JSON response
     public function json($data, $statusCode = 200) {
         header('Content-Type: application/json');
         http_response_code($statusCode);
@@ -12,7 +12,7 @@ class Controller {
         exit();
     }
 
-    // HTML view renderer
+    // HTML view 
     public function returnView($path) {
         if (file_exists($path)) {
             include $path;
