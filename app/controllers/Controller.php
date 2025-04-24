@@ -2,18 +2,22 @@
 
 namespace app\controllers;
 
-abstract class Controller {
+class Controller {
 
-    public function returnView($pathToView) {
-        require $pathToView;
+    // JSON response helper
+    public function json($data, $statusCode = 200) {
+        header('Content-Type: application/json');
+        http_response_code($statusCode);
+        echo json_encode($data);
         exit();
     }
 
-    public function returnJSON($json) {
-        header("Content-Type: application/json");
-        echo json_encode($json);
-        exit();
+    // HTML view renderer
+    public function returnView($path) {
+        if (file_exists($path)) {
+            include $path;
+        } else {
+            echo "View not found: " . htmlspecialchars($path);
+        }
     }
-
-
 }

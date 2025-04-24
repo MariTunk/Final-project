@@ -5,8 +5,8 @@ require '../app/core/Router.php';
 require '../app/models/Model.php';
 require '../app/controllers/Controller.php';
 require '../app/controllers/MainController.php';
-require '../app/controllers/UserController.php';
-require '../app/models/User.php';
+require '../app/controllers/BookingController.php';
+require '../app/models/Booking.php';
 
 
 //set up env variables

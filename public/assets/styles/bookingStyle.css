@@ -1,0 +1,116 @@
+:root {
+    --deep-green: #0f2e27;
+    --green: #1d4939;
+    --accent-color: #c5a76b;
+    --cream: #b4a086;
+    --dark-green: #2a3c30;
+    --text-dark: #1d1d1d;
+    --text-light: #fafafa;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--cream);
+    color: var(--green);
+    font-family: 'Georgia', serif;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-custom {
+    background-color: var(--deep-green) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-custom .navbar-brand,
+.navbar-custom .nav-link {
+    color: var(--accent-color) !important;
+}
+
+.navbar-custom .nav-link:hover,
+.navbar-custom .navbar-brand:hover {
+    color: var(--accent-color) !important;
+}
+
+.navbar-custom .btn-outline-secondary {
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.navbar-custom .btn-outline-secondary:hover {
+    background-color: var(--accent-color);
+    color: var(--deep-green);
+    border-color: var(--accent-color);
+}
+
+h1, h2, h3, h4 {
+    color: var(--dark-green);
+}
+
+.card {
+    background-color: rgba(187, 176, 131, 0.04);
+    border: 1px solid var(--green);
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 4px 12px rgba(197, 171, 132, 0.2);
+    color: var(--dark-green);
+}
+
+.btn-primary {
+    background-color: var(--green);
+    border: none;
+    color: var(--deep-green);
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--green);
+    color: var(--deep-green);
+}
+
+input, textarea, select {
+    background-color: #e8c99c;
+    border: 1px solid var(--dark-green);
+    border-radius: 5px;
+    padding: 0.5rem;
+    width: 100%;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--green);
+    box-shadow: 0 0 4px var(--green);
+}
+
+#calendar {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 1rem;
+    color: var(--text-dark);
+}
+
+.fc .fc-toolbar-title {
+    color: var(--deep-green);
+    font-weight: bold;
+}
+
+.fc-button-primary {
+    background-color: var(--green);
+    border-color: var(--dark-green);
+    color: var(--deep-green);
+}
+
+.fc-button-primary:hover {
+    background-color: var(--dark-green);
+}
+
+#bookingMessage {
+    font-weight: bold;
+    margin-top: 0.5rem;
+}

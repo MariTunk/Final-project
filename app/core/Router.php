@@ -2,40 +2,36 @@
 
 namespace app\core;
 
-use app\controllers\MainController;
-use app\controllers\UserController;
+use app\controllers\MainController; // Ensure MainController is imported
 
 class Router {
-    public $uriArray;
+    public $routeList;
 
-    function __construct() {
-        $this->uriArray = $this->routeSplit();
-        $this->handleMainRoutes();
-        $this->handleUserRoutes();
+    function __construct($routes) {
+        $this->routeList = $routes;
     }
 
-    protected function routeSplit() {
-        $removeQueryParams = strtok($_SERVER["REQUEST_URI"], '?');
-        return explode("/", $removeQueryParams);
-    }
+    public function serveRoute() {
+        $cleanUri = strtok($_SERVER['REQUEST_URI'], '?');
+        $uriParse = explode('/', trim($cleanUri, '/'));
+        $method = $_SERVER['REQUEST_METHOD'];
 
-    protected function handleMainRoutes() {
-        if ($this->uriArray[1] === '' && $_SERVER['REQUEST_METHOD'] === 'GET') {
-            $mainController = new MainController();
-            $mainController->homepage();
-        }
-    }
-
-    protected function handleUserRoutes() {
-        if ($this->uriArray[1] === 'users' && $_SERVER['REQUEST_METHOD'] === 'GET') {
-            $userController = new UserController();
-            $userController->usersView();
-        }
-
-        //give json/API requests a api prefix
-        if ($this->uriArray[1] === 'api' && $this->uriArray[2] === 'users' && $_SERVER['REQUEST_METHOD'] === 'GET') {
-            $userController = new UserController();
-            $userController->getUsers();
+        if ($uriParse[0]) {
+            if (isset($this->routeList[$uriParse[0]])) {
+                $route = $this->routeList[$uriParse[0]];
+                $controller = $route['controller'];
+                $action = $route[$method];
+                $controller = new $controller();
+                $controller->$action();
+            } else {
+                // Handle 404
+                $homepageController = new MainController();
+                $homepageController->notFound(); // Call the notFound method
+            }
+        } else {
+            // Handle homepage
+            $homepageController = new MainController();
+            $homepageController->homepage();
         }
     }
 }
