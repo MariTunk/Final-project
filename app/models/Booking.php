@@ -4,7 +4,7 @@ namespace app\models;
 
 class Booking extends Model {
 
-    protected $table = 'bookings'; // For findAll() if needed
+    protected $table = 'bookings'; // For findAll()
 
     public function createBooking($data) {
         $query = "INSERT INTO bookings (booking_date, service_name, henna_type, notes)
@@ -33,7 +33,7 @@ class Booking extends Model {
             $errors[] = 'Henna type is required.';
         }
 
-        // Notes are optional, so no validation needed
+        
 
         return $errors;
     }
