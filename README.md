@@ -1,5 +1,6 @@
 📅  Booking System Web App
-This is a full-stack booking system built for my small buisness Mariyams Creations . The app allows users to manage bookings using an interactive calendar interface. Admins can view all bookings and manage the system from a dashboard.
+
+This full-stack booking system was built for my small business, Mariyams Creations. The app allows users to manage bookings using an interactive calendar interface. Admins can view all bookings and manage the system from a dashboard.
 
 🛠️ Built With
 Frontend: HTML, CSS, Bootstrap, JavaScript, FullCalendar
